@@ -17,8 +17,26 @@ const App = () => {
   useEffect(() => {
       FatchUsers();
   }, [])
+
+  function handleSubmit(e){
+    e.preventDefault();
+    const {username, email} = e.target.elements;
+    console.log(username.value, email.value)
+  }
   return (
-    <div className='users'>
+
+    <>
+
+     <form className='user-froms' onSubmit={handleSubmit}>
+        <input type="text" placeholder="Enter your usernaem" name="usernaem" />
+        <input type="emal" placeholder="Enter your email" name="email" /> <br />
+
+        <button>Submit</button>
+      </form>
+
+
+
+     <div className='users'>
       {
         Users.map((user) => {
           return <div className='user'>
@@ -32,6 +50,8 @@ const App = () => {
       }
       
     </div>
+    </>
+   
   )
 }
 

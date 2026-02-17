@@ -31,6 +31,34 @@ html{
     border: 2px solid rgb(48, 47, 47);
   }
 
+ 
 
 
+
+}
+form{
+  display: flex;
+  gap: 1rem;
+  padding: 2rem;
+  
+
+  input{
+    padding-block: 1.25rem ;
+    padding-inline: 2rem;
+    border-radius: 0.75rem;
+    width: 100%;
+    font-size: 1.35rem;
+    border: none;
+    overflow: hidden;
+    outline: none;
+  }
+  button{
+    padding-inline: 1.75rem;
+    padding-block: 0.75rem;
+    border-radius: 0.75rem;
+    font-size: 1.25rem;
+    color:rgb(244, 251, 255);
+    font: 400;
+    background: linear-gradient(to bottom, #D4ADCF,#856084)
+  }
 }
