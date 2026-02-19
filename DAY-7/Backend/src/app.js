@@ -1,6 +1,7 @@
 const express = require("express");
 const users = require("./models/users.models.js");
 const cors = require("cors");
+const path = require("path");
 
 
 
@@ -8,6 +9,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static("./public"));
 
 /*
   Path /api/users/crete
@@ -57,6 +59,11 @@ app.patch("/api/update/users/:id", async (req, res) => {
     message: "User email Updated"
   })
 })
+console.log("__dirname data :-  " + __dirname)
 
+// Path *
+app.get("*name", (req,res) => {
+  res.sendFile(path.join(__dirname, "..", "/public/index.html"))
+})
 
 module.exports = app;
