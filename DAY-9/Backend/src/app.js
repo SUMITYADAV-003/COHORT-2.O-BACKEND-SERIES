@@ -42,6 +42,16 @@ app.delete("/api/delte/:id", async (req,res) => {
   })
 })
 
+// Update routes
+
+app.patch("/api/user/update/:id", async (req,res) => {
+  const id = req.params.id;
+  const {email} = req.body;
+  await userModel.findByIdAndUpdate(id, {email});
+  res.status(201).json({
+    message: "User updated successfully:-",
+  })
+})
 
 
 app.use("/api/auth", authRoute);
