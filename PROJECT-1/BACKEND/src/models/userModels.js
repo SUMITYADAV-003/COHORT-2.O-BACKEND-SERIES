@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema({
      required: [true, "Password is required "],
   },
   bio: "String",
-  ProfileImage:{
+  profileImage:{
     type: "String",
     default: "https://ik.imagekit.io/hnoglyswo0/avatar-gender-neutral-silhouette-vector-600nw-2470054311.webp",
   },
