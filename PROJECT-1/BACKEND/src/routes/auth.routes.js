@@ -50,6 +50,34 @@ authRoutes.post("/register", async(req,res) => {
  })
 
 
+});
+
+
+authRoutes.post("/login", async (req,res) => {
+  const {email, password} = req.body;
+
+  const user = await userModel.findOne({email});
+  if(!user) {
+    return res.status(409).json({
+      message: "User not found with this email address",
+    })
+  }
+  const ispasswordMached = user.password === crypto.createHash("md5").update(password).digest("hex");
+  if(!ispasswordMached){
+    return res.status(401).json({
+      message: "Invalid password",
+    })
+  }
+  const token = jwt.sign({
+    id: user._id,
+  }, process.env.JWT_SECRET);
+
+  res.cookie("jwt_token", token);
+  res.status(200).json({
+    message: "user logged in",
+    user,
+  });
+ 
 })
 
 
