@@ -1,15 +1,96 @@
 const express = require("express");
-const authControllers = require("../controllers/auth.controllers.js")
+const userModel = require("../models/userModels.js");
+const crypto = require("crypto");
+const jwt = require("jsonwebtoken");
 
 
 
 
 const authRoutes = express.Router();
 
+authRoutes.post("/register", async (req, res) => {
+  
+    const { username, email, password, bio, profileImage } = req.body;
+  
+  
+  
+   const isUserAlreadyExists = await userModel.findOne({
+        $or: [
+            { username },
+            { email }
+        ]
+    })
+  if(isUserAlreadyExists){
+    return res.status(409).json({
+      message: "User already exists " + (isUserAlreadyExists.email == email ? "Email already exists" : "Username already exists")
+    })
+  }
+  const hash = crypto.createHash("sha256").update(password).digest("hex");
 
-authRoutes.post('/register', authControllers.registerController);
-authRoutes.post('/login', authControllers.loginController);
+  const user = await userModel.create({
+    username, password: hash,email,bio, profileImage
+  });
 
+  const token = jwt.sign({
+    id: user._id,
+  }, process.env.JWT_SECRETS, {expiresIn: "1d"});
+
+  res.cookie("token", token);
+  res.status(201).json({
+    message: "User Registered successfully",
+    user: {
+      username: user.username,
+      email: user.email,
+      password: user.password,
+      bio: user.bio,
+      profileImage: user.profileImage,
+    }
+  })
+
+
+});
+
+authRoutes.post("/login", async (req,res) => {
+  const {email, password, username} = req.body;
+
+  const user  = await userModel.findOne({
+     $or: [
+            { username : username},
+            { email: email }
+        ]
+  })
+    if(!user){
+      return res.status(404).json({
+        message: "User Not Found",
+      })
+    }
+
+    const hash = crypto.createHash("sha256").update(password).digest("hex");
+
+    const isPasswordValid = hash == user.password;
+    
+    if(!isPasswordValid){
+      return res.status(401).json({
+        message: "Password inValid",
+      })
+    }
+    const token = jwt.sign({
+      id: user._id,
+    }, process.env.JWT_SECRETS, {expiresIn: "1d"});
+
+    res.cookie("Login-token", token);
+    res.status(200).json({
+      message: " User login Successfully : ",
+      user: {
+        username: user.username,
+        email: user.email,
+        bio: user.bio,
+        profileImage: user.profileImage
+      }
+    })
+
+
+})
 
 
 
