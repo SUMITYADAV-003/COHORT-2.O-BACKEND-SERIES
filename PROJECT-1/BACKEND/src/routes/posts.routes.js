@@ -13,4 +13,4 @@ postRouter.post("/",upload.single('imgUrl'), postController.createPostControler)
 
 
 
-module.exports = postRouterl;
+module.exports = postRouter;

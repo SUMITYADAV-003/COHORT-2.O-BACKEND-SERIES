@@ -14,7 +14,7 @@ app.use(cookieParser());
 
 
 app.use("/api/auth", authRoutes);
-app.use("/api/crete/post", postRouter);
+app.use("/api/post", postRouter);
 
 
 
