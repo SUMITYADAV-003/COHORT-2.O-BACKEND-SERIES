@@ -8,6 +8,8 @@ const upload = multer({ storage: multer.memoryStorage() })
 
 
 postRouter.post("/",upload.single('imgUrl'), postController.createPostControler);
+postRouter.get("/", postController.getPostController);
+postRouter.get("/details/:postId", postController.getPostDetailsController);
 
 
 
