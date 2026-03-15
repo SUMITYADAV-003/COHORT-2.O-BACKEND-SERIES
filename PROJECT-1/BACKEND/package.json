@@ -10,5 +10,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "@imagekit/nodejs": "^7.3.0",
+    "multer": "^2.1.1"
+  }
 }
