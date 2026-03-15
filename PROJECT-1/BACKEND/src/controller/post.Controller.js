@@ -17,6 +17,24 @@ async function createPostController(req,res) {
         folder: "cohort-2-insta-clone-posts"
     })
 
+    const post = await postModel.create({
+      caption: req.body.caption,
+      imgUrl: file.url,
+      user: req.user.id,
+    });
+
+    res.status(201).json({
+      message: "Post created sucessfully",
+      post,
+    })
 
 
+
+
+
+}
+
+
+module.exports = {
+  createPostController,
 }

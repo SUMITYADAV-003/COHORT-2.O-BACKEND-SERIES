@@ -1,10 +1,12 @@
 const express  = require("express");
 
+
 /* require routes*/
 const authRouter = require('./routes/user.routes.js');
+const postRouter = require("./routes/post.routes.js");
+
+
 const cookieParser = require("cookie-parser");
-
-
 const app = express();
 
 
@@ -15,7 +17,8 @@ app.use(cookieParser());
 
 
 /* using routes */
-app.use("/api/auth", authRouter);
+app.use("/api/auth",authRouter);
+app.use("/api/post",postRouter);
 
 
 

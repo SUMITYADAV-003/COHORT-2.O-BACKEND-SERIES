@@ -1,5 +1,4 @@
-
-require("dotenv").config();
+require('dotenv').config()
 const app = require("./src/app.js");
 const ConnectToDb = require("./src/config/DbConnect.js");
 
