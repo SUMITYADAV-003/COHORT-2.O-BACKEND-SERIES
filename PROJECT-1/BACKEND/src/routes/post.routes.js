@@ -8,6 +8,7 @@ const postController = require("../controller/post.Controller.js");
 
 
 postRoute.post("/", upload.single("imgUrl"),identifyUser,postController.createPostController);
+postRoute.get("/",identifyUser,postController.getPostController);
 
 
 

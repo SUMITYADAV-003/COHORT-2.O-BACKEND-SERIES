@@ -35,6 +35,38 @@ async function createPostController(req,res) {
 }
 
 
+async function getPostController(req,res) {
+  const userId = req.user.id;
+
+  const posts = await postModel.find({
+    user: userId,
+  });
+
+  res.status(200).json({
+    message: "Posts fetched successfully.",
+    posts
+  })
+}
+
+async function getPostDetailsController(req,res) {
+
+
+  const userId = req.user.id;
+  const postId = req.params.postId;
+
+  const post = await postModel.findById(postId);
+
+  if(!post){
+    return res.status(404).json({
+      message: "Post not found"    
+    })
+  }
+  
+}
+
+
 module.exports = {
   createPostController,
+  getPostController,
+  
 }
