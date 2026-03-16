@@ -2,8 +2,9 @@ const express  = require("express");
 
 
 /* require routes*/
-const authRouter = require('./routes/user.routes.js');
+const authRouter = require('./routes/auth.routes.js');
 const postRouter = require("./routes/post.routes.js");
+const userRouter = require("./routes/user.routes.js");
 
 
 const cookieParser = require("cookie-parser");
@@ -19,6 +20,7 @@ app.use(cookieParser());
 /* using routes */
 app.use("/api/auth",authRouter);
 app.use("/api/post",postRouter);
+app.use("/api/users",userRouter);
 
 
 
