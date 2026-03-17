@@ -1,22 +1,52 @@
-import React from 'react'
-import {Link} from "react-router"
-import "../styles/form.scss"
+import React, { useState } from "react";
+import { Link } from "react-router";
+import "../styles/form.scss";
+import axios from 'axios'
 
 const Login = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  function handleSubmit(e){
+    e.preventDefault()
+
+    axios.post("http://localhost:3001/api/auth/login", {
+      username,
+      password,
+    }, {withCredentials: true})
+       .then(res => {
+        console.log(res.data);
+       })
+  }
+
   return (
     <main>
       <div className="form-controller">
         <h1>Login</h1>
 
-        <form >
-          <input type="text"  placeholder='Enter User Name'/>
-           <input type="password" placeholder='Enter password ' />
-           <button>Login</button>
+        <form onSubmit={handleSubmit}>
+          <input
+          onInput={(e) => {setUsername(e.target.value)}}
+          type="text"
+          name='username'
+          placeholder="Enter User Name" />
+          <input 
+          onInput={(e) => {setPassword(e.target.value)}}
+          type="password"
+          name="password"
+          placeholder="Enter password "
+           />
+          <button type="submit">Login</button>
         </form>
-        <p>Don't have an account? <Link className='toggleAuthForm' to="/register">Register</Link></p>
+        <p>
+          Don't have an account?{" "}
+          <Link className="toggleAuthForm" to="/register">
+            Register
+          </Link>
+        </p>
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

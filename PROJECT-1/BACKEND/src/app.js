@@ -1,4 +1,5 @@
 const express  = require("express");
+const cors = require("cors");
 
 
 /* require routes*/
@@ -15,6 +16,10 @@ const app = express();
 // middleware
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({
+  credentials: true,
+  origin: "http://localhost:5173",
+}));
 
 
 /* using routes */
