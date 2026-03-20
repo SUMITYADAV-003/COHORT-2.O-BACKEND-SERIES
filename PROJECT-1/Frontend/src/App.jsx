@@ -1,12 +1,9 @@
 import React from 'react'
-import "./style.scss"
-import AppRouter from './AppRouter'
+import "../src/features/shared/global.scss"
 
 const App = () => {
   return (
-    <>
-    <AppRouter/>
-    </>
+    <div>App</div>
   )
 }
 
