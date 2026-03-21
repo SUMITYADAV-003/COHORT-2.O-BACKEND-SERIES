@@ -14,6 +14,14 @@ export const router = createBrowserRouter([
   { 
     path: "/register",
     element: <Register/>
+  },
+  { 
+    path: "/",
+    element: <h1>Four Layesr of React Archtacter </h1>
+  },
+  { 
+    path: "/home",
+    element: <h1>HOME</h1>
   }
 
 ])
