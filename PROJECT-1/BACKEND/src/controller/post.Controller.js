@@ -77,6 +77,15 @@ async function getPostDetailsController(req,res) {
   
 }
 
+async function getFeedController(req,res) {
+  const user = req.user;
+
+ 
+  
+}
+
+
+
 
 module.exports = {
   createPostController,

@@ -1,0 +1,40 @@
+.feed-box{
+ height: 100vh;
+ width: 100%;
+
+
+ .users{
+  display: flex;
+  gap: 1rem;
+
+
+  img{
+    height: 2rem;
+    aspect-ratio: 1/1;
+    border-radius: 1rem;
+    overflow: hidden;
+    outline: none;
+    border: none;
+  }
+  .color1{
+    border: 2px white solid;
+    border-radius: 50%;
+    overflow: hidden;
+    outline: none;
+    
+  }
+ }
+
+ .posts-img{
+  
+
+  img{
+    height: 40rem;
+    object-fit: cover;
+
+    width: 100%;
+  }
+ }
+
+
+}

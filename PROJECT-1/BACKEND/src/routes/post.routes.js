@@ -11,6 +11,14 @@ postRoute.post("/", upload.single("imgUrl"),identifyUser,postController.createPo
 postRoute.get("/",identifyUser,postController.getPostController);
 postRoute.get("/details/:postId",identifyUser,postController.getPostDetailsController);
 
+/**
+ * @route GET /api/posts/feed
+ * @description get all the post created in the DB
+ * @access private
+ */
+postRoute.get("/feed",identifyUser, postController.getFeedController);
+
+
 
 
 
