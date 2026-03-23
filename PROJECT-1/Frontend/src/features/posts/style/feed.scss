@@ -1,34 +1,57 @@
-.feed-box{
- height: 100vh;
- width: 100%;
-
-
- .users{
+.feed-page{
   display: flex;
-  gap: 1rem;
+  justify-content: center;
+  align-items: flex-start;
+ 
 
 
-  img{
-    height: 2rem;
-    aspect-ratio: 1/1;
-    border-radius: 1rem;
-    overflow: hidden;
-    outline: none;
-    border: none;
-  }
 
- }
-
- .posts-img{
-  
-
-  img{
-    height: 40rem;
-    object-fit: cover;
-
+  .feed{
+    max-width: 400px;
     width: 100%;
-  }
- }
 
+    .posts{
+      width: 100%;
+    }
+    .post{
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+      background-color: rgb(68, 64, 64);
+      padding-inline: 0.5rem;
+      padding-block: 0.5rem;
+
+      .user{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        .img-wrapper{
+          background-color: white;
+          display: flex;
+           justify-content: center;
+           align-items: center;
+           border-radius: 50%;
+           border: 2px solid transparent;
+           background: linear-gradient(50deg,
+#e96443, #904e95, #3494e6);
+        }
+
+
+        img{
+          width: 2rem;
+          aspect-ratio: 1/1;
+          border-radius: 50%;
+          object-fit: cover;
+          
+        }
+      }
+
+      img{
+        width: 100%;
+      }
+    }
+  }
 
 }

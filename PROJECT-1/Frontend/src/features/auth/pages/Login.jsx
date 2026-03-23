@@ -1,6 +1,6 @@
 import React,   { useState } from "react";
 import {Link} from "react-router";
-import "../style/form.scss";
+import "../style/form.auth.scss";
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router";
 

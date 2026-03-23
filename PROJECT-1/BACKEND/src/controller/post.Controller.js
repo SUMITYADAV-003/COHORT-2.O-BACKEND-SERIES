@@ -78,7 +78,13 @@ async function getPostDetailsController(req,res) {
 }
 
 async function getFeedController(req,res) {
-  const user = req.user;
+  const posts = await postModel.find().populate("user")
+
+
+  res.status(200).json({
+    message: "post fetched Successfully.",
+    posts
+  })
 
  
   
@@ -91,5 +97,6 @@ module.exports = {
   createPostController,
   getPostController,
   getPostDetailsController,
+  getFeedController,
   
 }
