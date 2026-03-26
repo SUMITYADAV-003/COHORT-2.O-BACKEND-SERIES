@@ -1,26 +1,17 @@
-import React from 'react'
-import "../style/feed.scss"
+import React from "react";
+import "../style/feed.scss";
+import Post from "../components/Post";
 
 const Feed = () => {
   return (
-    <main className='feed-controller'>
+    <main className="feed-page">
       <div className="feed">
-        <div className="users">
-        <div className="user">
-          <img src="img.jpg" alt="" />
-          <h1>username</h1>
+        <div className="posts">
+          <Post />
         </div>
-        </div>
-
-         <div className="posts">
-          <div className="post">
-            <img src="img1.jpg" alt="" />
-          </div>
-        </div>
-       
       </div>
     </main>
-  )
-}
+  );
+};
 
-export default Feed
+export default Feed;

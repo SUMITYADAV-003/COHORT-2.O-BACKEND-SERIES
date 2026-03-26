@@ -1,38 +1,96 @@
-.feed-controller {
+.feed-page {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+
 
   .feed {
-    .users {
-      
-    
-      .user {
-       display: flex;
-       gap: 1rem;
-
-        img {
-          width: 3rem;
-          aspect-ratio: 1/1;
-          border-radius: 50%;
-          border: none;
-          overflow: hidden;
-          object-fit: cover;
-        }
-      }
-    }
+    width: 100%;
+    max-width: 300px;
 
     .posts {
-     
-      .post {
-         display: flex;
+      width: 100%;
+      display: flex;
       flex-direction: column;
-      gap: 1rem;
-        img {
-          width: 30rem;
-          aspect-ratio: 1/1;
-          object-fit: cover;
+      gap: 0.1rem;
+     
+    }
+
+    .post{
+    
+      background-color: #312626;
+      width: 100%;
+      border-radius: 0.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding-inline: 0.5rem;
+      padding-block: 0.5rem;
+      
+     
+
+      .second-img{
+        border-radius: 0.2rem;
+        object-fit: cover;
+      }
+
+
+      .user{
+        display: flex;
+        text-align: center;
+        gap: 0.5rem;
+
+
+
+
+        .img-wrapper{
+
+          border-radius: 50%;
+          border: 2px solid transparent;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: conic-gradient(from 45deg, (pink), hotpink,#d99ac5 ) border-box;
+        
+
         }
+        img{
+          width: 2rem;
+          border-radius: 50%;
+          object-fit: cover;
+
+        }
+      }
+      .icons{
+        display: flex;
+        justify-content: space-between;
+
+        .left{
+          display: flex;
+          gap: 0.5rem;
+        }
+
+        svg{
+          width: 2rem;
+          aspect-ratio: 1/1;
+          color: white;
+
+          rect {
+      fill: transparent; 
+    }
+          
+        }
+        button{
+          background-color: transparent;
+          border: none;
+          overflow: hidden;
+          outline: none;
+          
+        }
+      }
+      img{
+        width: 100%;
       }
     }
   }
