@@ -1,21 +1,20 @@
 import React from 'react'
 
-const Post = () => {
+const Post = ({user,post,loading,handleLike, handleUnLike}) => {
   return (
       <div className="post">
             <div className="user">
               <div className="img-wrapper">
                 <img
-                  src="https://i.pinimg.com/736x/69/71/45/6971456f0c818bf1d7859e55ff9fe1cc.jpg"
-                  alt=""
+                  src={user.profileImage}
+                  alt="profileImage"
                 />
               </div>
 
-              <p>username</p>
+              <p>{user.username}</p>
             </div>
             <img
-              className="second-img"
-              src="https://i.pinimg.com/736x/a6/9a/ab/a69aabcf4a12e6e8bae84a52b8f9f295.jpg"
+              className={post.imgUrl}
               alt=""
             />
 
