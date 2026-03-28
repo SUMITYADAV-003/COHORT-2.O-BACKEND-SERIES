@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from "react-router"
 import "./nav.scss"
 
+
 const Nav = () => {
 
   const navigate = useNavigate();

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import "../style/createpost.scss";
 import { usePost } from "../hooks/usePost";
-import { useNavigate } from "react-dom";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   const [caption, setCaption] = useState("");
@@ -15,7 +15,7 @@ const CreatePost = () => {
     const file = postImageInputFieldRef.current.files[ 0 ]
 
     await handleCreatePost(file, caption)
-    navigate('/')
+    navigate("/")
     
   }
 
@@ -41,12 +41,17 @@ const CreatePost = () => {
             type="file"
             hidden
             name="postImage"
+            id="postImage"
           />
           <input 
           type="text" 
+          name="caption"
+          id="caption"
           value={caption}
-          onChange={(e) => {sel}}
+          onChange={(e) => {setCaption(e.target.value)}}
           placeholder="Enter Caption" />
+            <button className='button primary-button' >create post</button>
+          
         </form>
       </div>
     </main>
