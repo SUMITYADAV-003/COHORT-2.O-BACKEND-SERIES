@@ -5,7 +5,25 @@ import { useNavigate } from "react-dom";
 
 const CreatePost = () => {
   const [caption, setCaption] = useState("");
-  const   = useState("");
+  const postImageInputFieldRef  = useRef(null);
+
+  const navigate = useNavigate();
+  const { loading,  handleCreatePost} = usePost()
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    const file = postImageInputFieldRef.current.files[ 0 ]
+
+    await handleCreatePost(file, caption)
+    navigate('/')
+    
+  }
+
+  if(loading){
+    return (<main>
+      <h1>creteing post</h1>
+    </main>)
+  }
 
 
 
