@@ -33,9 +33,9 @@ export const usePost = () => {
   }
 
 
-useEffect(() => {
-  handleGetFeed();
-},[]);
+   useEffect(() => {
+    handleGetFeed();
+   }, [])
 
  return {loading, feed, post, handleGetFeed,handleCreatePost, handleLike, handleUnLike}
 }
