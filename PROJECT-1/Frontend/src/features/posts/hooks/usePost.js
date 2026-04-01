@@ -23,13 +23,17 @@ export const usePost = () => {
   }
 
   const handleLike = async (post) => {
+   
     const data = await likePost(post)
     await handleGetFeed()
+    
   }
   
   const handleUnLike = async (post) => {
+    
     const data = await unlikePost(post);
     await handleGetFeed()
+    
   }
 
 

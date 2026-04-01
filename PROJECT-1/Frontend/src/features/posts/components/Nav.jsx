@@ -10,7 +10,11 @@ const Nav = () => {
 
   return (
     <nav className='nav-bar'>
-      <p>Insta</p>
+      <div className="icons">
+       <img src="/instaIcon.webp" alt="" />
+          <p>Insta</p>
+      </div>
+      
       <button onClick={() => {navigate("/create-post")}}
         className='button primary-button'
         >
