@@ -11,7 +11,9 @@ const Nav = () => {
   return (
     <nav className='nav-bar'>
       <div className="icons">
+        <div className="img-wrapper">
        <img src="/instaIcon.webp" alt="" />
+       </div>
           <p>Insta</p>
       </div>
       

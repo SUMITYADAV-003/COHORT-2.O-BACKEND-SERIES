@@ -1,9 +1,29 @@
+@font-face {
+  font-family: "insta";
+  src: url('/Frontend/src/Fonts/Insta.ttf');
+}
+
+
 .nav-bar{
+
+  .img-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:  2px solid transparent;
+    border-radius: 50%;
+    overflow: hidden;
+    background: conic-gradient(from 45deg, (rgb(249, 144, 162)), hotpink,#e76cc0 ) border-box;
+  }
 
   .icons{
     display: flex;
     align-items: center;
     gap: 0.5rem;
+
+    p{
+      font-family: "insta";
+    }
 
 
     img{
