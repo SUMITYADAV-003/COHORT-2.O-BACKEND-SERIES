@@ -9,7 +9,7 @@ async function followUserController(req,res) {
     const followeeUsername = req.params.username;
 
 
-    if(followeeUsername === followUserController){
+    if(followeeUsername === followerUsername){
       return res.status(400).json({
         message: "You cannot follow yourself",
       })
